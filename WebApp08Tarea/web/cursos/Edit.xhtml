@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCursosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCursosLabel_codigo}" for="codigo" />
+                    <h:inputText id="codigo" value="#{cursosController.selected.codigo}" title="#{bundle.EditCursosTitle_codigo}" required="true" requiredMessage="#{bundle.EditCursosRequiredMessage_codigo}"/>
+                    <h:outputLabel value="#{bundle.EditCursosLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{cursosController.selected.nombre}" title="#{bundle.EditCursosTitle_nombre}" required="true" requiredMessage="#{bundle.EditCursosRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditCursosLabel_costo}" for="costo" />
+                    <h:inputText id="costo" value="#{cursosController.selected.costo}" title="#{bundle.EditCursosTitle_costo}" required="true" requiredMessage="#{bundle.EditCursosRequiredMessage_costo}"/>
+                    <h:outputLabel value="#{bundle.EditCursosLabel_fecIni}" for="fecIni" />
+                    <h:inputText id="fecIni" value="#{cursosController.selected.fecIni}" title="#{bundle.EditCursosTitle_fecIni}" required="true" requiredMessage="#{bundle.EditCursosRequiredMessage_fecIni}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCursosLabel_fecFin}" for="fecFin" />
+                    <h:inputText id="fecFin" value="#{cursosController.selected.fecFin}" title="#{bundle.EditCursosTitle_fecFin}" required="true" requiredMessage="#{bundle.EditCursosRequiredMessage_fecFin}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCursosLabel_duracion}" for="duracion" />
+                    <h:inputText id="duracion" value="#{cursosController.selected.duracion}" title="#{bundle.EditCursosTitle_duracion}" required="true" requiredMessage="#{bundle.EditCursosRequiredMessage_duracion}"/>
+                    <h:outputLabel value="#{bundle.EditCursosLabel_sesiones}" for="sesiones" />
+                    <h:inputText id="sesiones" value="#{cursosController.selected.sesiones}" title="#{bundle.EditCursosTitle_sesiones}" required="true" requiredMessage="#{bundle.EditCursosRequiredMessage_sesiones}"/>
+                    <h:outputLabel value="#{bundle.EditCursosLabel_capacidad}" for="capacidad" />
+                    <h:inputText id="capacidad" value="#{cursosController.selected.capacidad}" title="#{bundle.EditCursosTitle_capacidad}" required="true" requiredMessage="#{bundle.EditCursosRequiredMessage_capacidad}"/>
+                    <h:outputLabel value="#{bundle.EditCursosLabel_inscritos}" for="inscritos" />
+                    <h:inputText id="inscritos" value="#{cursosController.selected.inscritos}" title="#{bundle.EditCursosTitle_inscritos}" required="true" requiredMessage="#{bundle.EditCursosRequiredMessage_inscritos}"/>
+                    <h:outputLabel value="#{bundle.EditCursosLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{cursosController.selected.estado}" title="#{bundle.EditCursosTitle_estado}" />
+                </h:panelGrid>
+                <h:commandLink action="#{cursosController.update}" value="#{bundle.EditCursosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCursosViewLink}"/>
+                <br />
+                <h:commandLink action="#{cursosController.prepareList}" value="#{bundle.EditCursosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCursosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

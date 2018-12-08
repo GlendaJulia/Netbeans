@@ -1,0 +1,54 @@
+table#listado {
+    background-color: #AAAAAA;
+    color: #0000BB;
+    font: 12px/14px Arial;
+    border-style: solid;
+    border-width:3px;
+    border-color:black;
+}
+
+table#listado th {
+    background-color: #333333;
+    color: #FFFFFF;
+    font: 15px/25px Arial;
+    font-weight:bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+table#listado td {
+    background-color: #FFFFFF;
+    color: #0000FF;
+    font: 13px/16px Arial;
+    padding: 2px;
+ }
+ table#editar {
+    background-color: #BBBBBB;
+    color: #0000BB;
+    font: 12px/18px Arial;
+    font-weight: bold;
+    border-style: solid;
+    border-width:3px;
+    border-color:#000000;
+}
+
+table#editar th {
+    background-color: #444444;
+    color: #FFFFFF;
+    font: 16px/25px Arial;
+    font-weight:bolder;
+    text-align: left;
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+table#editar td {
+    background-color: #FFFFFF;
+    color: #0000BB;
+    font: 12px/18px Arial;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #666666;
+    padding:7px;
+}

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Sistema de Control</title>
+        <link rel="stylesheet" type="text/css" href="resources/css/estilo.css"></link>
+    </h:head>
+    <h:body class="cuerpo">
+        <h:form>
+        <table width="100%">
+            <tr>
+                <td>
+                    <div class="titulo" style="margin-left: 40%;">
+                        Acceso al Sistema
+                    </div>
+                </td>
+            </tr>
+        </table>
+            <div class="datos">
+            <table>
+            <tr>
+                <td>
+                    <h:outputText id="lblusuario" value="usuario" class="labels"></h:outputText>
+                    <br />
+                    <h:inputText id="txtusuario" value="#{autosBeans.usuario}" class="textBox" required="true"></h:inputText>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h:outputText id="lblclave" value="clave" class="labels"></h:outputText>
+                    <br />
+                    <h:inputSecret id="txtclave" value="#{autosBeans.clave}" class="textBox" required="true"></h:inputSecret>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h:outputText id="lbltipo" value="tipo" class="labels"></h:outputText>
+                    <br />
+                    <h:selectOneMenu value="#{autosBeans.tipo}"> 
+                        <f:selectItems value="#{autosBeans.tipos}" class="textBox"/>
+                    </h:selectOneMenu>
+                </td>
+            </tr>
+                 <tr>
+                <td>
+                    <br />
+                    <h:commandButton id="btnautenticar" action="#{autosBeans.loginProject}" value="Autenticar" class="botones"></h:commandButton>
+                </td>
+            </tr>
+            </table>
+        </div>
+        </h:form>
+    </h:body>
+</html>
+
+

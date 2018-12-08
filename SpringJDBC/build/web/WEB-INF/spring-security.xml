@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd                           
+                           http://www.springframework.org/schema/security
+                           http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+    
+    <security:http auto-config="true">
+        <security:intercept-url pattern="/" access="permitAll()"/>
+        <security:intercept-url pattern="/listado.htm" 
+            access="hasRole('ROLE_Usuario') or hasRole('ROLE_Administrador')"/>
+        <security:intercept-url pattern="/editar.htm" access="!hasAuthority('ROLE_Usuario')"/>
+        <security:intercept-url pattern="/agregar.htm" access="!hasAuthority('ROLE_Usuario')"/>
+        <security:logout logout-url="/salir.htm" logout-success-url="/index.jsp"/>
+        <security:access-denied-handler error-page="/acceso-denegado.htm"/>
+        <security:form-login login-page="/login.htm" default-target-url="/listado.htm"
+                    login-processing-url="/j_spring_security_check"
+                    authentication-failure-url="/error-login.htm"
+                    username-parameter="usuario"
+                    password-parameter="clave"/>
+    </security:http>
+    
+    <security:authentication-manager alias="authenticationManager">
+        <security:authentication-provider>
+            <security:jdbc-user-service data-source-ref="dataSource"
+            users-by-username-query="
+            SELECT USERNAME, PASSWORD, CASE ENABLED WHEN 1 THEN 'true' ELSE 'false' END 'ENABLED'
+            FROM usuarios WHERE USERNAME=?;"
+            authorities-by-username-query="
+            SELECT u.USERNAME, r.ROLENAME
+                    FROM usuarios u, roles r
+                    WHERE u.codigo = r.codigo_usuario
+                    AND u.USERNAME=?;"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+</beans>

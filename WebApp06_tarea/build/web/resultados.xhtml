@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <table border="1">
+            <th colspan="2">
+                <h:outputLabel value="Matriculada Creada" />
+            </th>
+            <tr>
+                <td>
+                    <b><h:outputLabel value="Nombres y Apellidos: " /></b>
+                </td>
+                <td>
+                    <h:outputText value="#{datos.nombres}" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b><h:outputLabel value="Departamentos : " /></b>
+                </td>
+                <td>
+                    <ui:repeat var="valor" value="#{datos.depas}" >
+                        <h:outputText value="#{valor}" /><br />
+                    </ui:repeat>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b><h:outputLabel value="Cursos : " /></b>
+                </td>
+                <td>
+                    <ui:repeat var="valor" value="#{datos.cursos}" >
+                        <h:outputText value="#{valor}" /><br />
+                    </ui:repeat>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b><h:outputLabel value="Correo: " /></b>
+                </td>
+                <td>
+                    <h:outputText value="#{datos.correo}" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b><h:outputLabel value="Telefono: " /></b>
+                </td>
+                <td>
+                    <h:outputText value="#{datos.telefono}" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b><h:outputLabel value="Recibir informacion sobre: " /></b>
+                </td>
+                <td>
+                    <ui:repeat var="valor" value="#{datos.recibir}" >
+                        <h:outputText value="#{valor}" /><br />
+                    </ui:repeat>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b><h:outputLabel value="¿Esta de acuerdo con las peliticas? " /></b>
+                </td>
+                <td>
+                    <h:outputText value="#{datos.si_no}" />
+                    
+                </td>
+            </tr>
+        </table>
+    </h:body>
+</html>

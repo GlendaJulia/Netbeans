@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCursosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCursosLabel_codigo}" for="codigo" />
+                    <h:inputText id="codigo" value="#{cursosController.selected.codigo}" title="#{bundle.CreateCursosTitle_codigo}" required="true" requiredMessage="#{bundle.CreateCursosRequiredMessage_codigo}"/>
+                    <h:outputLabel value="#{bundle.CreateCursosLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{cursosController.selected.nombre}" title="#{bundle.CreateCursosTitle_nombre}" required="true" requiredMessage="#{bundle.CreateCursosRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.CreateCursosLabel_costo}" for="costo" />
+                    <h:inputText id="costo" value="#{cursosController.selected.costo}" title="#{bundle.CreateCursosTitle_costo}" required="true" requiredMessage="#{bundle.CreateCursosRequiredMessage_costo}"/>
+                    <h:outputLabel value="#{bundle.CreateCursosLabel_fecIni}" for="fecIni" />
+                    <h:inputText id="fecIni" value="#{cursosController.selected.fecIni}" title="#{bundle.CreateCursosTitle_fecIni}" required="true" requiredMessage="#{bundle.CreateCursosRequiredMessage_fecIni}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCursosLabel_fecFin}" for="fecFin" />
+                    <h:inputText id="fecFin" value="#{cursosController.selected.fecFin}" title="#{bundle.CreateCursosTitle_fecFin}" required="true" requiredMessage="#{bundle.CreateCursosRequiredMessage_fecFin}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCursosLabel_duracion}" for="duracion" />
+                    <h:inputText id="duracion" value="#{cursosController.selected.duracion}" title="#{bundle.CreateCursosTitle_duracion}" required="true" requiredMessage="#{bundle.CreateCursosRequiredMessage_duracion}"/>
+                    <h:outputLabel value="#{bundle.CreateCursosLabel_sesiones}" for="sesiones" />
+                    <h:inputText id="sesiones" value="#{cursosController.selected.sesiones}" title="#{bundle.CreateCursosTitle_sesiones}" required="true" requiredMessage="#{bundle.CreateCursosRequiredMessage_sesiones}"/>
+                    <h:outputLabel value="#{bundle.CreateCursosLabel_capacidad}" for="capacidad" />
+                    <h:inputText id="capacidad" value="#{cursosController.selected.capacidad}" title="#{bundle.CreateCursosTitle_capacidad}" required="true" requiredMessage="#{bundle.CreateCursosRequiredMessage_capacidad}"/>
+                    <h:outputLabel value="#{bundle.CreateCursosLabel_inscritos}" for="inscritos" />
+                    <h:inputText id="inscritos" value="#{cursosController.selected.inscritos}" title="#{bundle.CreateCursosTitle_inscritos}" required="true" requiredMessage="#{bundle.CreateCursosRequiredMessage_inscritos}"/>
+                    <h:outputLabel value="#{bundle.CreateCursosLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{cursosController.selected.estado}" title="#{bundle.CreateCursosTitle_estado}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cursosController.create}" value="#{bundle.CreateCursosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{cursosController.prepareList}" value="#{bundle.CreateCursosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCursosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

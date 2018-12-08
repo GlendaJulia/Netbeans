@@ -1,0 +1,43 @@
+body{
+    background-color: black;    
+}
+.titulo, div.titulo {
+    color: white;
+    font: 30px Arial;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.labels {
+    color: white;
+    font: 15px/25px Arial;
+    font-weight:bold;
+}
+.botones {
+    color: white;
+    background-color: #E7A61A;
+    border-color: #E7A61A;
+    -moz-border-radius: 10px 10px;
+    -webkit-border-radius: 10px 10px;
+    width: 130px;
+    height: 40px;
+}
+.textBox{
+    color: dimgrey;
+    background-color: white;
+    border-color: black;
+    font-weight: bold;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+    
+}
+ .datos {
+    border-style: solid;
+    border-width: 4px;
+    border-color: #E7A61A;
+    -moz-border-radius: 10px 10px;
+    -webkit-border-radius: 10px 10px;
+    width: 200px;
+    padding: 10px 10px 10px 30px;
+    margin-left: 41%;
+}
+

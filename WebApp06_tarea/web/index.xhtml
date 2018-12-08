@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Matriculas
+    <hr />
+       <h:form>
+        <h3>Matriculas a Cursos</h3>
+        <br />
+        <h:outputText id="lblnombre" value="Nombres y Apellidos:"></h:outputText>
+        <br />
+        <h:inputText id="txtnombre" value="#{datos.nombres}" required="true" requiredMessage="Campo Nombres es obligatorio"></h:inputText>
+        <br />
+        <h:outputText value="Departamentos:"></h:outputText>
+        <br />
+        <h:selectOneListbox value="#{datos.depas}"
+                              required="true" requiredMessage="Debe seleccionar un departamento" readonly="false"> 
+            <f:selectItems value="#{datos.departamentos}" />
+        </h:selectOneListbox>
+        <br />
+        <br />
+        <h:outputText value="Cursos"></h:outputText>
+        <br />
+        <h:selectManyListbox value="#{datos.cursos}"
+                              required="true" requiredMessage="Debe seleccionar al menos un curso" readonly="false"> 
+            <f:selectItems value="#{datos.materias}" />
+        </h:selectManyListbox>
+        <br />
+        <h:outputText id="lblcorreo" value="Correo:"></h:outputText>
+        <br />
+        <h:inputText id="txtcorreo" value="#{datos.correo}" required="true" requiredMessage="Campo Correo es obligatorio"></h:inputText>
+        <br />
+        <h:outputText id="lbltelefono" value="Telefono:"></h:outputText>
+        <br />
+        <h:inputText id="txttelefono" value="#{datos.telefono}" required="true" requiredMessage="Campo Telefono es obligatorio"></h:inputText>
+        <br />
+        <h:outputText value="Recibir información sobre:"></h:outputText>
+        <h:selectManyCheckbox id="chkcasillas" value="#{datos.recibir}"
+                              border="1" readonly="false">
+                 <f:selectItems value="#{datos.informacion}" />
+        </h:selectManyCheckbox>
+        <br />
+        <h:outputText value="¿Está de acuerdo con las políticas?"></h:outputText>
+        <h:selectOneRadio value="#{datos.si_no}"
+                              required="true" requiredMessage="Debe seleccionar una opcion" border="1" readonly="false"> 
+            <f:selectItems value="#{datos.politicas}" />
+        </h:selectOneRadio>
+        <br />
+        <br />
+       <h:commandButton id="btnautenticar" value="Autenticar" type="submit" action="resultados"></h:commandButton>
+       </h:form>
+    </h:body>
+
+</html>
+
